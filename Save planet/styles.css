@@ -1,0 +1,248 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-decoration: none;
+  font-family: "Fredoka", sans-serif;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: grey;
+}
+
+#hero {
+  background-image: url("img/river.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.hero-section-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 85vh;
+  width: 85%;
+  border-radius: 30px;
+  border: 2px solid rgba(211, 211, 211, 0.2); 
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  margin: 10px 0;
+}
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+#logo span {
+  color: rgb(0, 225, 225); /* 与WATER中A的颜色一致 */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  height: 2px;
+  width: 80%;
+  box-shadow: 0 0 5px white;
+  transform: scaleX(0) translateY(-100%);
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+nav a:hover::after {
+  transform: scaleX(0.5) translateY(0);
+}
+
+.active {
+  color: rgb(0, 225, 225); /* 与WATER中A的颜色一致 */
+}
+
+.active::after {
+  background-color: rgb(0, 225, 225);
+}
+
+/* Header的Donate按钮（颜色与WATER中A一致） */
+.header-donate {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 7px 25px;
+  background-color: rgb(0, 225, 225); /* 与WATER中A的颜色一致 */
+  border: 1px solid rgb(0, 225, 225);
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.header-donate:hover {
+  background-color: rgba(0, 225, 225, 0.8);
+}
+
+/* Hero内容区布局 */
+.hero-content {
+  margin-top: 0px;
+  padding: 0 40px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1.3fr 0.7fr;
+}
+
+/* 左侧内容 + 从左侧滑入动画 */
+.left-content {
+  width: 90%;
+  color: white;
+}
+
+/* 定义“从左侧滑入”动画 */
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 子元素继承动画，添加延迟层次 */
+.left-content > * {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideFromLeft 1.2s ease forwards;
+}
+
+.left-content h3 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 10px;
+  animation-delay: 0.2s;
+}
+
+/* WATER标题样式（A的颜色与Donate按钮统一） */
+.water-title {
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  animation-delay: 0.4s;
+}
+
+.water-title span:nth-child(1),
+.water-title span:nth-child(3),
+.water-title span:nth-child(5) {
+  color: white;
+}
+
+.water-title span:nth-child(2),
+.water-title span:nth-child(4) {
+  color: rgb(0, 225, 225); /* 与Donate按钮颜色一致 */
+}
+
+.left-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 500px;
+  animation-delay: 0.6s;
+}
+
+/* 内容区的Donate按钮（颜色与WATER中A一致） */
+.content-donate {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 35px;
+  background-color: rgb(0, 225, 225); /* 与WATER中A的颜色一致 */
+  border-radius: 30px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 225, 225, 0.3);
+  transition: 0.3s;
+  animation-delay: 0.8s;
+}
+
+.content-donate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 225, 225, 0.5);
+}
+
+/* 右侧地球容器 */
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content img {
+  width: 110%;
+  transform: rotate(15deg) translateX(-5%) ;
+  filter: drop-shadow(0 0 10px rgba(0, 225, 225)) 
+          drop-shadow(0 0 20px rgba(0, 225, 225))
+          drop-shadow(0 0 40px rgba(0, 225, 225))
+          drop-shadow(0 0 100px rgba(0, 225, 225));
+  animation: earth-rotate-plane 120s linear infinite;
+  transition: transform .4s ease, width .25s ease;
+}
+
+/* 地球平面旋转动画（绕Z轴） */
+@keyframes earth-rotate-plane {
+  0% {
+    transform: translateX(-15%)  rotate(15deg);
+  }
+  100% {
+    transform: translateX(-15%) rotate(375deg);
+  }
+}
+
+@keyframes earth-rotate-plane-fast {
+  0% {
+    transform: translateX(-15%)  rotate(15deg);
+  }
+  100% {
+    transform: translateX(-15%)  rotate(375deg);
+  }
+}

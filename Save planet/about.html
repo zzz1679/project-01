@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Save Water</title>
+  <!-- 复用主页面字体和样式 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 适配About页面的布局 */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 40px;
+      color: white;
+      align-items: center;
+      height: calc(100% - 80px);
+    }
+    .about-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: rgb(0, 225, 225);
+    }
+    .about-desc {
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .about-goals {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .about-goals li::before {
+      content: "✓";
+      color: rgb(0, 225, 225);
+      margin-right: 10px;
+    }
+    .about-img img {
+      width: 100%;
+      border-radius: 20px;
+      filter: drop-shadow(0 0 20px rgba(0, 225, 225, 0.5));
+      /* 图片添加淡入动画，与文字动画呼应 */
+      opacity: 0;
+      animation: fadeIn 1.5s ease 0.6s forwards;
+    }
+
+    /* 1. 定义“从左侧滑入”动画（与主页面一致） */
+    @keyframes slideFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* 2. 定义“淡入”动画（用于图片） */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* 3. 文字元素绑定滑入动画，添加延迟层次 */
+    .about-text > * {
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideFromLeft 1.2s ease forwards;
+    }
+    .about-title {
+      animation-delay: 0.2s; /* 标题先滑入 */
+    }
+    .about-desc {
+      animation-delay: 0.4s; /* 段落随后滑入 */
+    }
+    .about-text h3 {
+      animation-delay: 0.6s; /* 小标题延迟滑入 */
+    }
+    .about-goals li {
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideFromLeft 1.2s ease forwards;
+    }
+    .about-goals li:nth-child(1) {
+      animation-delay: 0.8s; /* 第一项目标延迟 */
+    }
+    .about-goals li:nth-child(2) {
+      animation-delay: 1s; /* 第二项目标延迟 */
+    }
+    .about-goals li:nth-child(3) {
+      animation-delay: 1.2s; /* 第三项目标延迟 */
+    }
+  </style>
+</head>
+<body>
+  <section id="hero">
+    <div class="hero-section-container">
+      <header>
+        <a id="logo" href=" ">Save<span>Water.</span></a >
+        <nav>
+          <a class="nav-items" href="index.html">Home</a >
+          <a class="nav-items active" href="about.html">About</a >
+          <a class="nav-items" href="gallery.html">Gallery</a >
+          <a class="nav-items" href="contacts.html">Contacts</a >
+        </nav>
+        <button class="cta-btn header-donate">Donate</button>
+      </header>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="about-title">Our Mission</h2>
+          <p class="about-desc">
+            Save Water is a global movement dedicated to conserving the world's most precious resource: water. 
+            We believe every drop counts—whether it's reducing household waste, supporting community water projects, 
+            or advocating for sustainable policies.
+          </p >
+          <h3>Our Goals</h3>
+          <ul class="about-goals">
+            <li>Reduce global domestic water waste by 20% by 2030</li>
+            <li>Build 500+ community water purification systems in underserved regions</li>
+            <li>Educate 10M+ people on water conservation practices</li>
+          </ul>
+        </div>
+        <div class="about-img">
+          <img src="img/group.jpg" alt="Water Conservation Team">
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

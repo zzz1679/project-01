@@ -1,0 +1,25 @@
+
+ 
+plaintext
+  
+Title:
+Save Water
+
+Short Description:
+Save and Secure Tomorrow! Water is life, and 
+every drop we save today protects the world of
+tomorrow. Join the movement to conserve water, 
+protect our most precious resource. Together, 
+we can build a sustainable future where every 
+drop counts and every effort matters.
+
+NavBar:
+Logo, Home About Gallery Contacts, Donate
+
+Color:
+rgb(0, 225, 225)
+
+font-family:"Fredoke", sans-serif;
+
+Font Awesome cdn:
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
