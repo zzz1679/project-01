@@ -8,129 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Gallery 页面布局 */
-    .gallery-content {
-      padding: 40px;
-      height: calc(100% - 80px);
-    }
-    .gallery-title {
-      font-size: 48px;
-      color: rgb(0, 225, 225);
-      margin-bottom: 30px;
-      text-align: left;
-    }
-    .gallery-desc {
-      color: white;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      max-width: 600px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .gallery-item {
-      border-radius: 20px;
-      overflow: hidden;
-      filter: drop-shadow(0 0 15px rgba(0, 225, 225, 0.3));
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* 平滑过渡曲线 */
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
-      position: relative;
-    }
-    /* 增强的悬停动画效果 */
-    .gallery-item:hover {
-      transform: scale(1.08) rotate(1deg); /* 缩放+轻微旋转 */
-      filter: drop-shadow(0 0 25px rgba(0, 225, 225, 0.6)); /* 阴影强化 */
-      z-index: 10; /* 悬停时层级提升，避免遮挡 */
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      transition: all 0.5s ease;
-    }
-    .gallery-item:hover img {
-      filter: brightness(1.1); /* 图片亮度微增 */
-    }
-    .gallery-caption {
-      padding: 15px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      text-align: center;
-      transition: background-color 0.5s ease;
-    }
-    .gallery-item:hover .gallery-caption {
-      background-color: rgba(0, 225, 225, 0.2); /* 标题栏背景变色 */
-    }
-
-    /* 复用左侧滑入动画（与主页面一致） */
-    @keyframes slideFromLeft {
-      0% {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    /* 图片淡入动画（与文字动画呼应） */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* 文字元素动画绑定 */
-    .gallery-text > * {
-      opacity: 0;
-      transform: translateX(-100%);
-      animation: slideFromLeft 1.2s ease forwards;
-    }
-    .gallery-title {
-      animation-delay: 0.2s;
-    }
-    .gallery-desc {
-      animation-delay: 0.4s;
-    }
-
-    /* 图片动画延迟（逐行递进） */
-    .gallery-item:nth-child(1) { animation-delay: 0.6s; }
-    .gallery-item:nth-child(2) { animation-delay: 0.8s; }
-    .gallery-item:nth-child(3) { animation-delay: 1s; }
-    .gallery-item:nth-child(4) { animation-delay: 1.2s; }
-    .gallery-item:nth-child(5) { animation-delay: 1.4s; }
-    .gallery-item:nth-child(6) { animation-delay: 1.6s; }
-
-    /* 适配移动端布局 */
-    @media (max-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 480px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
   <section id="hero">
     <div class="hero-section-container">
       <header>
-        <a id="logo" href="">Save<span>Water.</span></a >
+        <a id="logo" href=" ">Save<span>Water.</span></a >
         <nav>
-          <a class="nav-items" href=" ">Home</a >
+          <a class="nav-items" href="index.html">Home</a >
           <a class="nav-items" href="about.html">About</a >
           <a class="nav-items active" href="gallery.html">Gallery</a >
           <a class="nav-items" href="contacts.html">Contacts</a >
@@ -147,28 +32,46 @@
           </p >
         </div>
         <div class="gallery-grid">
+          <!-- 图片项 1 -->
           <div class="gallery-item">
-            <img src="img/gallery1.jpg" alt="Community Water Project">
+            <div class="clipBox">
+              <img src="img/gallery1.jpg" alt="Community Water Project">
+            </div>
             <div class="gallery-caption">Community water purification system (Kenya, 2024)</div>
           </div>
+          <!-- 图片项 2 -->
           <div class="gallery-item">
-            <img src="img/gallery2.jpg" alt="School Education">
+            <div class="clipBox">
+              <img src="img/gallery2.jpg" alt="School Education">
+            </div>
             <div class="gallery-caption">Water conservation workshop (India, 2023)</div>
           </div>
+          <!-- 图片项 3 -->
           <div class="gallery-item">
-            <img src="img/gallery3.jpg" alt="River Cleanup">
+            <div class="clipBox">
+              <img src="img/gallery3.jpg" alt="River Cleanup">
+            </div>
             <div class="gallery-caption">River cleanup drive (Brazil, 2024)</div>
           </div>
+          <!-- 图片项 4 -->
           <div class="gallery-item">
-            <img src="img/gallery4.jpg" alt="Drip Irrigation">
+            <div class="clipBox">
+              <img src="img/gallery4.jpg" alt="Drip Irrigation">
+            </div>
             <div class="gallery-caption">Sustainable drip irrigation (Spain, 2023)</div>
           </div>
+          <!-- 图片项 5 -->
           <div class="gallery-item">
-            <img src="img/gallery5.jpg" alt="Volunteer Team">
+            <div class="clipBox">
+              <img src="img/gallery5.jpg" alt="Volunteer Team">
+            </div>
             <div class="gallery-caption">Volunteer team at a rural water project (Nepal, 2024)</div>
           </div>
+          <!-- 图片项 6 -->
           <div class="gallery-item">
-            <img src="img/gallery6.jpg" alt="Rainwater Harvesting">
+            <div class="clipBox">
+              <img src="img/gallery6.jpg" alt="Rainwater Harvesting">
+            </div>
             <div class="gallery-caption">Rainwater harvesting system (Mexico, 2023)</div>
           </div>
         </div>
