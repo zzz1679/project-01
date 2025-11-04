@@ -4,79 +4,152 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | Save Water</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background: url('img/river.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      padding: 2rem;
+    }
+
+    .box {
+      position: relative;
+      width: 20rem;
+      height: 28rem;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      overflow: hidden;
+      /* 纯(0,225,225,225)色系渐变背景 */
+      background: linear-gradient(45deg, rgba(0, 225, 225, 0.8), rgba(0, 225, 225, 1), rgba(0, 225, 225, 0.8));
+      transition: all 0.5s ease;
+      /* 多层荧光外发光 */
+      filter: drop-shadow(0 0 10px rgba(0, 225, 225, 0.7))
+              drop-shadow(0 0 20px rgba(0, 225, 225, 0.5))
+              drop-shadow(0 0 40px rgba(0, 225, 225, 0.3));
+    }
+
+    .box:hover {
+      /*  hover时增强发光强度 */
+      filter: drop-shadow(0 0 15px rgba(0, 225, 225, 0.9))
+              drop-shadow(0 0 30px rgba(0, 225, 225, 0.7))
+              drop-shadow(0 0 60px rgba(0, 225, 225, 0.5));
+    }
+
+    .text-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2.5rem;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+      background: linear-gradient(45deg, rgba(0, 225, 225, 0.3), rgba(0, 225, 225, 0.5), rgba(0, 225, 225, 0.3));
+
+    }
+
+    .text-layer h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .text-layer p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .clipBox {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      clip-path: circle(0% at 50% 50%);
+      overflow: hidden;
+      transition: clip-path 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 1;
+    }
+
+    .clipBox img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .box.force-hover .clipBox {
+      clip-path: circle(100% at 50% 50%) !important;
+    }
+  </style>
 </head>
 <body>
-  <section id="hero">
-    <div class="hero-section-container">
-      <header>
-        <a id="logo" href=" ">Save<span>Water.</span></a >
-        <nav>
-          <a class="nav-items" href="index.html">Home</a >
-          <a class="nav-items" href="about.html">About</a >
-          <a class="nav-items active" href="gallery.html">Gallery</a >
-          <a class="nav-items" href="contacts.html">Contacts</a >
-        </nav>
-        <button class="cta-btn header-donate">Donate</button>
-      </header>
-
-      <div class="gallery-content">
-        <div class="gallery-text">
-          <h2 class="gallery-title">Our Impact in Photos</h2>
-          <p class="gallery-desc">
-            Explore moments from our water conservation projects around the world. Each photo tells a story of community, 
-            sustainability, and hope—proving that small actions can create lasting change.
-          </p >
-        </div>
-        <div class="gallery-grid">
-          <!-- 图片项 1 -->
-          <div class="gallery-item">
-            <div class="clipBox">
-              <img src="img/gallery1.jpg" alt="Community Water Project">
-            </div>
-            <div class="gallery-caption">Community water purification system (Kenya, 2024)</div>
-          </div>
-          <!-- 图片项 2 -->
-          <div class="gallery-item">
-            <div class="clipBox">
-              <img src="img/gallery2.jpg" alt="School Education">
-            </div>
-            <div class="gallery-caption">Water conservation workshop (India, 2023)</div>
-          </div>
-          <!-- 图片项 3 -->
-          <div class="gallery-item">
-            <div class="clipBox">
-              <img src="img/gallery3.jpg" alt="River Cleanup">
-            </div>
-            <div class="gallery-caption">River cleanup drive (Brazil, 2024)</div>
-          </div>
-          <!-- 图片项 4 -->
-          <div class="gallery-item">
-            <div class="clipBox">
-              <img src="img/gallery4.jpg" alt="Drip Irrigation">
-            </div>
-            <div class="gallery-caption">Sustainable drip irrigation (Spain, 2023)</div>
-          </div>
-          <!-- 图片项 5 -->
-          <div class="gallery-item">
-            <div class="clipBox">
-              <img src="img/gallery5.jpg" alt="Volunteer Team">
-            </div>
-            <div class="gallery-caption">Volunteer team at a rural water project (Nepal, 2024)</div>
-          </div>
-          <!-- 图片项 6 -->
-          <div class="gallery-item">
-            <div class="clipBox">
-              <img src="img/gallery6.jpg" alt="Rainwater Harvesting">
-            </div>
-            <div class="gallery-caption">Rainwater harvesting system (Mexico, 2023)</div>
-          </div>
-        </div>
+  <div class="container">
+    <div class="box">
+      <div class="text-layer" onclick="revealImage('clipBox1', this)">
+        <h1>Community Water Project</h1>
+        <p>Discover how communities are transforming water access</p >
+      </div>
+      <div class="clipBox" id="clipBox1">
+        <img src="img/gallery1.jpg" alt="Community Water Project">
       </div>
     </div>
-  </section>
+
+    <div class="box">
+      <div class="text-layer" onclick="revealImage('clipBox2', this)">
+        <h1>Clean Water Access</h1>
+        <p>Explore initiatives bringing clean water to remote areas</p >
+      </div>
+      <div class="clipBox" id="clipBox2">
+        <img src="img/gallery2.jpg" alt="Clean Water Access">
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="text-layer" onclick="revealImage('clipBox3', this)">
+        <h1>Conservation Efforts</h1>
+        <p>See innovative ways to preserve our water resources</p >
+      </div>
+      <div class="clipBox" id="clipBox3">
+        <img src="img/gallery3.jpg" alt="Water Conservation Efforts">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function revealImage(targetId, textLayer) {
+      textLayer.style.opacity = '0';
+      textLayer.style.pointerEvents = 'none';
+      const box = textLayer.closest('.box');
+      box.classList.add('force-hover');
+      setTimeout(() => {
+        box.classList.remove('force-hover');
+      }, 1200);
+    }
+  </script>
 </body>
 </html>
